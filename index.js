@@ -27,6 +27,9 @@ bot.on("ready", () => {
     bot.user.setActivity(`>commands | ${bot.guilds.cache.size} servers`)  //bot status (displays under the bots name on userlist)
 });
 
+//(`>commands | ${bot.guilds.cache.size} servers!`)
+
+
 
 bot.on("message", message => {
 
@@ -140,6 +143,9 @@ bot.on("message", message => {
                 bot.commands.get('logs').execute(message, args, bot); //logs from the bot 
             break;
 
+           // case 'lyrics':
+                //bot.commands.get('lyrics').exectue(message, args, bot)  //lyrics finder
+            //break;
 
             //ADMINISTRATOR ONLY COMMANDS//
 
@@ -150,7 +156,13 @@ bot.on("message", message => {
                 console.log('messages cleared by user')
             break;
 
- 
+            //case 'channel':
+                //if(!message.member.hasPermission("ADMINISTRATOR", explicit = true)) return message.channel.send('Oops! you dont have permission to run that command')  //channel
+                //if(!args[1]) return message.reply('Error. The defined amount of channels is invalid. Try again.')
+                //message.channel.delete(args[1]);
+                //console.log('channels cleared by user')
+            //break;
+
 
             case 'channel':
                 message.reply('This command is blacklisted.')
@@ -184,6 +196,11 @@ bot.on("message", message => {
 
 
 
+        
+            
+
+            
+
 //console chatter
 let y = process.openStdin()
 y.addListener("data", rest => {
@@ -191,6 +208,19 @@ y.addListener("data", rest => {
     bot.channels.get("790104096710459433").send(x.join(" "));
 });
 
+
+
+
+
+
+            
+
+
+
+
+            
+
+            
 
 
             
@@ -203,6 +233,9 @@ y.addListener("data", rest => {
     }
 
 })
+
+
+
 
 
 

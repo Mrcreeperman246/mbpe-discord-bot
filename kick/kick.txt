@@ -1,0 +1,32 @@
+const Discord = require("discord.js");
+
+module.exports = {
+    name: 'kick',
+    description: "This command kicks a member!",
+    execute(message, args){
+        const target = message.mentions.users.first();
+        if(target){
+            const memberTarget = message.guild.members.cache.get(target.id);
+            memberTarget.kick();
+            const kickEmbed = new Discord.MessageEmbed()
+            .setTitle("Action: Kick")
+            .setDescription(`kicked ${target} (User ID: ${target.id})`)
+            .setColor("#ff2050")
+            .setFooter(`kicked by ${message.author.username}\n \nPlease note that the bot cannot be kicked using this command\n this command is experimental so it may not work`);
+            message.channel.send(kickEmbed)
+            console.log("A member was kicked!")
+        }else{
+            const kick3Embed = new Discord.MessageEmbed()
+            .setTitle("Error when executing command")
+            .setColor("#ff2050")
+            .setFooter("Note: if you don't ping the user, they won't be kicked! simples")
+            .setDescription(`Oops! this member cannot be kicked! try one of the following:\n 1: ping the user you want to kick\n 2: check if they are a higher role than the bot\n \n if this doesn't help, contact a staff member`);
+            message.channel.send(kick3Embed)
+
+            //i don't think bots can be kicked using this command
+        }
+    }
+}
+
+
+
